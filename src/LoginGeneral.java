@@ -1,4 +1,5 @@
 
+
 /*
  * This class handles the Login. Either redirects to a new Login or compares the given inputs with a config file.
  * If the data matches the config file can be read in. 
@@ -113,7 +114,7 @@ public class LoginGeneral extends JFrame
 						/*final InGameMain_Elninima inGameFrame = new InGameMain_Elninima();
 						inGameFrame.setVisible(true);*/
 						
-						ElninimaMain.isLoggedIn = true;
+						Main.isLoggedIn = true;
 						LoginGeneral.this.contentPane.setVisible(false);
 						LoginGeneral.this.contentPane.invalidate();
 						LoginGeneral.this.dispose();

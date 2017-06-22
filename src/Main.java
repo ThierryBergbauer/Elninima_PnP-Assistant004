@@ -1,10 +1,3 @@
-
-/*
- * Main Class
- * 
- * Everything important should be implemented here.
- * This class also handles all the windows inside the main window.
- */
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.awt.TextArea;
@@ -19,7 +12,7 @@ import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 
-public class ElninimaMain
+public class Main
 {
 	
 	private JFrame frame;
@@ -28,7 +21,7 @@ public class ElninimaMain
 	public JScrollPane panelConsole;
 	public JScrollPane panelQuest;
 	
-	static volatile boolean isLoggedIn = false;
+	 public static boolean isLoggedIn = false;
 	
 	/**
 	 * Launch the application.
@@ -42,7 +35,7 @@ public class ElninimaMain
 			{
 				try
 				{
-					final ElninimaMain window = new ElninimaMain();
+					final Main window = new Main();
 					window.frame.setVisible(true);
 				} catch (final Exception e)
 				{
@@ -55,7 +48,7 @@ public class ElninimaMain
 	/**
 	 * Create the application.
 	 */
-	public ElninimaMain()
+	public Main()
 	{
 		this.initialize();
 	}
