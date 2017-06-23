@@ -40,4 +40,10 @@ with the name:
 -Different authorizations in game (admin, gamemaster, player, spectator)
 -Window Design
 	-Most important: We need to fix a overall Design and color scheme
-	-MAKING THE WINSOWS ADJUSTABLE AND AUTOSCALEABLE (At the moment all the internal frames/windows are Scrollpanes. This is not a good solution. But I didn't found a better one) 
+	-MAKING THE WINSOWS ADJUSTABLE AND AUTOSCALEABLE (At the moment all the internal frames/windows are Scrollpanes. 	This is not a good solution. But I didn't found a better one) 
+
+#Work organisation:
+-Thierry: Console, Data loading and saving
+-faegbag: 
+-:
+-:
