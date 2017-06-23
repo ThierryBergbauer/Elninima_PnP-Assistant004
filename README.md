@@ -18,20 +18,26 @@ with the name:
 -Login Screen
 	-Username and Password Setting
 	-Password repeating for correction of typing errors
+-Implementation of the Menu bar
+	-Login, Logout, New Game and Load Data are already connected to a ActionListener.
 	
 	
 	
 #TODO:
 (for reference see WhatsApp or Images that will soon be uploaded)
--Load Data/Create new Game window
+-Load Data
 -in game window
 	-map view
 	-console
 	-character view
+	-player data view
+	-inventory view
+	-quest view
 	-dye rolling
 	-monster selection
 	-...
 -Connection to a Server (SQL?)
 -Different authorizations in game (admin, gamemaster, player, spectator)
 -Window Design
-	-Most important: We need to fix a overall Design and color scheme 
+	-Most important: We need to fix a overall Design and color scheme
+	-MAKING THE WINSOWS ADJUSTABLE AND AUTOSCALEABLE (At the moment all the internal frames/windows are Scrollpanes. This is not a good solution. But I didn't found a better one) 
