@@ -25,6 +25,10 @@ import net.miginfocom.swing.MigLayout;
 public class NewLogin extends JFrame
 {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private final JPanel contentPane;
 	private final JTextField textField;
 	private final JPasswordField passwordField;

@@ -3,6 +3,10 @@ import java.awt.EventQueue;
 import java.awt.TextArea;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 
 import javax.swing.JDesktopPane;
 import javax.swing.JFrame;
@@ -21,9 +25,10 @@ public class Main
 	public JScrollPane panelConsole;
 	public JScrollPane panelQuest;
 	
-	 public static boolean isLoggedIn = false;
+	public static String username = "";
+	public static boolean isLoggedIn = false;
 	
-	/**
+	/*
 	 * Launch the application.
 	 */
 	public static void main(final String[] args)
@@ -180,6 +185,43 @@ public class Main
 		final TextArea textArea_1 = new TextArea();
 		panelConsole.setViewportView(textArea_1);
 		textArea_1.append("asdf\nasdf\nasdf\nasdf\nasdf\nasdf\nasdf\nasdf\nasdf\nasdf\nasdf\nasdf\nasdf\nasdf\nasdf");
+		textArea_1.addKeyListener(new KeyListener()
+		{
+			@Override
+			public void keyPressed(final KeyEvent e)
+			{
+				
+				if (e.getKeyCode() == KeyEvent.VK_ENTER)
+				{
+					final Console Con1 = new Console(username);
+					Con1.addCommand(textArea_1.getText().substring(textArea_1.getText().lastIndexOf("\n") + 1));
+					try
+					{
+						textArea_1.setText(FileReaderLog.readFile1(username + "Log") + "\n");
+					} catch (final FileNotFoundException e1)
+					{
+						e1.printStackTrace();
+					} catch (final IOException e1)
+					{
+						e1.printStackTrace();
+					}
+				}
+			}
+			
+			@Override
+			public void keyTyped(final KeyEvent e)
+			{
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void keyReleased(final KeyEvent e)
+			{
+				// TODO Auto-generated method stub
+				
+			}
+		});
 		
 		//final TextArea textArea = new TextArea();
 		//panelConsole.getContentPane().add(textArea, BorderLayout.CENTER);

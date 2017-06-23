@@ -1,5 +1,4 @@
 
-
 /*
  * This class handles the Login. Either redirects to a new Login or compares the given inputs with a config file.
  * If the data matches the config file can be read in. 
@@ -115,6 +114,7 @@ public class LoginGeneral extends JFrame
 						inGameFrame.setVisible(true);*/
 						
 						Main.isLoggedIn = true;
+						Main.username = UsernameTextField.getText();
 						LoginGeneral.this.contentPane.setVisible(false);
 						LoginGeneral.this.contentPane.invalidate();
 						LoginGeneral.this.dispose();
