@@ -5,6 +5,8 @@ This ReadMe fill is meant for a short overview of the current work. Please keep 
 
 (Mark TODOs also in the Code with "//TODO" and add description)
 
+For Design View left click on the file (example Main.java) -> open with -> WindowBuilder Editor
+
 #General Infos:
 The config.properties file will be used later again. At the moment the login file will be saved in the project folder
 with the name:
