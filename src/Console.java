@@ -1,11 +1,16 @@
 import java.io.IOException;
 import java.io.OutputStream;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Properties;
 
 public class Console
 {
 	public String username = "";
-	public String commandChar = "/";
+	private String commandChar = "/";
+	
+	public List<String> oldCommands = new ArrayList<>();
+	
 	final Properties prop = new Properties();
 	OutputStream outLOG = null;
 	

@@ -184,7 +184,7 @@ public class Main
 		
 		final TextArea textArea_1 = new TextArea();
 		panelConsole.setViewportView(textArea_1);
-		textArea_1.append("asdf\nasdf\nasdf\nasdf\nasdf\nasdf\nasdf\nasdf\nasdf\nasdf\nasdf\nasdf\nasdf\nasdf\nasdf");
+		
 		textArea_1.addKeyListener(new KeyListener()
 		{
 			@Override
