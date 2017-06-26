@@ -15,6 +15,7 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
 
 public class Main
 {
@@ -182,10 +183,13 @@ public class Main
 		panelConsole.setBounds(269, 444, 764, 213);
 		desktopPane.add(panelConsole);
 		
-		final TextArea textArea_1 = new TextArea();
-		panelConsole.setViewportView(textArea_1);
+		final TextArea textAreaDisplay = new TextArea();
+		panelConsole.setColumnHeaderView(textAreaDisplay);
 		
-		textArea_1.addKeyListener(new KeyListener()
+		final JTextArea textAreaEntry = new JTextArea();
+		panelConsole.setViewportView(textAreaEntry);
+		textAreaDisplay.append("Welcom to Elninima's Pan and Paper Assistant \nThis is your Console. For further informations enter '/help'.");
+		textAreaDisplay.addKeyListener(new KeyListener()
 		{
 			@Override
 			public void keyPressed(final KeyEvent e)
@@ -194,10 +198,10 @@ public class Main
 				if (e.getKeyCode() == KeyEvent.VK_ENTER)
 				{
 					final Console Con1 = new Console(username);
-					Con1.addCommand(textArea_1.getText().substring(textArea_1.getText().lastIndexOf("\n") + 1));
+					Con1.addCommand(textAreaDisplay.getText());
 					try
 					{
-						textArea_1.setText(FileReaderLog.readFile1(username + "Log") + "\n");
+						textAreaDisplay.setText(FileReaderLog.readFile1(username + "Log") + "\n");
 					} catch (final FileNotFoundException e1)
 					{
 						e1.printStackTrace();

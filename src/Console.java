@@ -4,10 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
+import javax.swing.JOptionPane;
+
 public class Console
 {
 	public String username = "";
-	private String commandChar = "/";
+	private final String commandChar = "/";
 	
 	public List<String> oldCommands = new ArrayList<>();
 	
@@ -24,6 +26,7 @@ public class Console
 		if (this.commandChar.equals(String.valueOf(Entry.charAt(0))))
 		{
 			; //TODO Execute command
+			JOptionPane.showMessageDialog(null, "Executes code... (Window for Debuging)"); //TODO Delete when execute command is finished
 			try
 			{
 				FileReaderLog.writeToFile(Entry, this.username + "log");
