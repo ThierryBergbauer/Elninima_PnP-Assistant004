@@ -1,7 +1,9 @@
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Properties;
 
 import javax.swing.JOptionPane;
@@ -11,6 +13,10 @@ public class Console
 	public String username = "";
 	
 	private final String commandChar = "/";
+	
+	private final Map allCommands = new HashMap();allCommands.put("SayHello",
+	
+	Thread(new ConsoleCommands.SayHello());
 	
 	private String commandToLog;
 	private final List<String> oldCommands = new ArrayList<>();
@@ -34,7 +40,7 @@ public class Console
 	{
 		if (this.commandChar.equals(String.valueOf(Entry.charAt(0))))
 		{
-			; //TODO Execute command
+			//TODO Execute command
 			this.setOldCommand(Entry);
 			JOptionPane.showMessageDialog(null, "Executes code... (Window for Debuging)"); //TODO Delete when execute command is finished
 			this.setCommandToLog(Entry);

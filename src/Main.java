@@ -181,7 +181,7 @@ public class Main
 		//Console implementation starts here
 		
 		final JScrollPane panelConsole = new JScrollPane();
-		//panelConsole.setTitle("Consolee");
+		//panelConsole.setTitle("Console");
 		panelConsole.setBounds(269, 444, 764, 213);
 		desktopPane.add(panelConsole);
 		
