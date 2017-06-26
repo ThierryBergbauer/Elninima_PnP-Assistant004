@@ -14,9 +14,7 @@ public class Console
 	
 	private final String commandChar = "/";
 	
-	private final Map allCommands = new HashMap();allCommands.put("SayHello",
-	
-	Thread(new ConsoleCommands.SayHello());
+	private final Map<String, Runnable> allCommands = new HashMap<>();
 	
 	private String commandToLog;
 	private final List<String> oldCommands = new ArrayList<>();
