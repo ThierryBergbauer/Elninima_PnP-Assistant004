@@ -183,13 +183,12 @@ public class Main
 		panelConsole.setBounds(269, 444, 764, 213);
 		desktopPane.add(panelConsole);
 		
-
 		final TextArea textAreaDisplay = new TextArea();
 		panelConsole.setColumnHeaderView(textAreaDisplay);
 		
 		final JTextArea textAreaEntry = new JTextArea();
 		panelConsole.setViewportView(textAreaEntry);
-		textAreaDisplay.append("asdf\nasdf\nasdf\nasdf\nasdf\nasdf\nasdf\nasdf\nasdf\nasdf\nasdf\nasdf\nasdf\nasdf\nasdf");
+		textAreaDisplay.append("Welcom to Elninima's Pan and Paper Assistant \nThis is your Console. For further informations enter '/help'.");
 		textAreaDisplay.addKeyListener(new KeyListener()
 		{
 			@Override
