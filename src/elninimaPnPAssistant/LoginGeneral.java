@@ -1,3 +1,4 @@
+package elninimaPnPAssistant;
 
 /*
  * This class handles the Login. Either redirects to a new Login or compares the given inputs with a config file.

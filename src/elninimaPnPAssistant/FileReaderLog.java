@@ -1,3 +1,5 @@
+package elninimaPnPAssistant;
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
@@ -9,27 +11,14 @@ public class FileReaderLog
 {
 	public static void writeToFile(final String data, final String file) throws IOException
 	{
-		FileWriter fstream = null;
-		
-		try
+		try (
+				FileWriter fstream = new FileWriter(file, true);
+				final BufferedWriter out = new BufferedWriter(fstream);)
 		{
-			fstream = new FileWriter(file, true);
-			final BufferedWriter out = new BufferedWriter(fstream);
 			out.write(data);
-			//Close the output stream
-			out.close();
 		} catch (final IOException ex)
 		{
 			ex.printStackTrace();
-		} finally
-		{
-			try
-			{
-				fstream.close();
-			} catch (final IOException ex)
-			{
-				ex.printStackTrace();
-			}
 		}
 	}
 	

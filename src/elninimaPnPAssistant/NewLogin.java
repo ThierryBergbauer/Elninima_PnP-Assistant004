@@ -1,3 +1,4 @@
+package elninimaPnPAssistant;
 
 /* This class creates new login files. It creates a config file with Username and Password saved.
  * Later this file should also be used to save user specific preferences, changed from the main class.

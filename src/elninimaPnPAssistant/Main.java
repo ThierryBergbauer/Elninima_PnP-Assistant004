@@ -1,12 +1,9 @@
+package elninimaPnPAssistant;
+
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
-import java.awt.TextArea;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 
 import javax.swing.JDesktopPane;
 import javax.swing.JFrame;
@@ -15,7 +12,6 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
 
 public class Main
 {
@@ -87,7 +83,9 @@ public class Main
 					LoginFrame.setVisible(true);
 				}
 				else
+				{
 					JOptionPane.showMessageDialog(null, "You are still logged in. Try Logging out");
+				}
 			}
 		});
 		
@@ -106,7 +104,9 @@ public class Main
 					LoginFrame.setVisible(true);
 				}
 				else
+				{
 					JOptionPane.showMessageDialog(null, "Not logged in");
+				}
 			}
 		});
 		
@@ -118,9 +118,13 @@ public class Main
 			public void actionPerformed(final ActionEvent e)
 			{
 				if (isLoggedIn)
+				{
 					JOptionPane.showMessageDialog(null, "Creating new game");
+				}
 				else
+				{
 					JOptionPane.showMessageDialog(null, "Not logged in");
+				}
 			}
 		});
 		
@@ -132,9 +136,13 @@ public class Main
 			public void actionPerformed(final ActionEvent e)
 			{
 				if (isLoggedIn)
+				{
 					JOptionPane.showMessageDialog(null, "Data loading");
+				}
 				else
+				{
 					JOptionPane.showMessageDialog(null, "Not logged in");
+				}
 			}
 		});
 		
@@ -169,83 +177,35 @@ public class Main
 		this.frame.getContentPane().add(desktopPane, BorderLayout.CENTER);
 		
 		final JScrollPane panelPlayerData = new JScrollPane();
-		//panelPlayerData.setTitle("Player Data");
+		// panelPlayerData.setTitle("Player Data");
 		panelPlayerData.setBounds(1032, 0, 177, 446);
 		desktopPane.add(panelPlayerData);
 		
 		final JScrollPane panelMap = new JScrollPane();
-		//panelMap.setTitle("Map");
+		// panelMap.setTitle("Map");
 		panelMap.setBounds(269, 0, 764, 446);
 		desktopPane.add(panelMap);
 		
-		//Console implementation starts here
+		// Console implementation starts here
+		final Console Con1 = new Console(username);
+		// panelConsole.setTitle("Console");
+		Con1.setBounds(269, 444, 764, 213);
+		desktopPane.add(Con1);
 		
-		final JScrollPane panelConsole = new JScrollPane();
-		//panelConsole.setTitle("Console");
-		panelConsole.setBounds(269, 444, 764, 213);
-		desktopPane.add(panelConsole);
-		
-		final TextArea textAreaDisplay = new TextArea();
-		panelConsole.setColumnHeaderView(textAreaDisplay);
-		
-		final JTextArea textAreaEntry = new JTextArea();
-		panelConsole.setViewportView(textAreaEntry);
-		
-		textAreaDisplay.append("Welcom to Elninima's Pan and Paper Assistant \nThis is your Console. For further informations enter '/help'.");
-		
-		textAreaEntry.addKeyListener(new KeyListener()
-		{
-			@Override
-			public void keyPressed(final KeyEvent e)
-			{
-				
-				if (e.getKeyCode() == KeyEvent.VK_ENTER)
-				{
-					final Console Con1 = new Console(username);
-					Con1.addCommand(textAreaEntry.getText());
-					try
-					{
-						textAreaDisplay.setText(FileReaderLog.readFile1(username + "Log"));
-					} catch (final FileNotFoundException e1)
-					{
-						e1.printStackTrace();
-					} catch (final IOException e1)
-					{
-						e1.printStackTrace();
-					}
-				}
-			}
-			
-			@Override
-			public void keyTyped(final KeyEvent e)
-			{
-				// TODO Auto-generated method stub
-				
-			}
-			
-			@Override
-			public void keyReleased(final KeyEvent e)
-			{
-				if (e.getKeyCode() == KeyEvent.VK_ENTER)
-					textAreaEntry.setText(null);
-				
-			}
-		});
-		
-		//Quest window implementation starts here
+		// Quest window implementation starts here
 		
 		final JScrollPane panelQuest = new JScrollPane();
-		//panelQuest.setTitle("Info & Quest");
+		// panelQuest.setTitle("Info & Quest");
 		panelQuest.setBounds(1032, 444, 177, 213);
 		desktopPane.add(panelQuest);
 		
 		final JScrollPane panelInventory = new JScrollPane();
-		//panelInventory.setTitle("Inventory");
+		// panelInventory.setTitle("Inventory");
 		panelInventory.setBounds(0, 444, 269, 213);
 		desktopPane.add(panelInventory);
 		
 		final JScrollPane panelStats = new JScrollPane();
-		//panelStats.setTitle("Stats");
+		// panelStats.setTitle("Stats");
 		panelStats.setBounds(0, 0, 269, 446);
 		desktopPane.add(panelStats);
 	}
