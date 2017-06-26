@@ -178,6 +178,8 @@ public class Main
 		panelMap.setBounds(269, 0, 764, 446);
 		desktopPane.add(panelMap);
 		
+		//Console implementation starts here
+		
 		final JScrollPane panelConsole = new JScrollPane();
 		//panelConsole.setTitle("Consolee");
 		panelConsole.setBounds(269, 444, 764, 213);
@@ -188,8 +190,10 @@ public class Main
 		
 		final JTextArea textAreaEntry = new JTextArea();
 		panelConsole.setViewportView(textAreaEntry);
+		
 		textAreaDisplay.append("Welcom to Elninima's Pan and Paper Assistant \nThis is your Console. For further informations enter '/help'.");
-		textAreaDisplay.addKeyListener(new KeyListener()
+		
+		textAreaEntry.addKeyListener(new KeyListener()
 		{
 			@Override
 			public void keyPressed(final KeyEvent e)
@@ -198,7 +202,7 @@ public class Main
 				if (e.getKeyCode() == KeyEvent.VK_ENTER)
 				{
 					final Console Con1 = new Console(username);
-					Con1.addCommand(textAreaDisplay.getText());
+					Con1.addCommand(textAreaEntry.getText());
 					try
 					{
 						textAreaDisplay.setText(FileReaderLog.readFile1(username + "Log") + "\n");
@@ -209,6 +213,7 @@ public class Main
 					{
 						e1.printStackTrace();
 					}
+					textAreaEntry.setText(null);
 				}
 			}
 			
@@ -227,9 +232,7 @@ public class Main
 			}
 		});
 		
-		//final TextArea textArea = new TextArea();
-		//panelConsole.getContentPane().add(textArea, BorderLayout.CENTER);
-		//textArea.append("asdf");
+		//Quest window implementation starts here
 		
 		final JScrollPane panelQuest = new JScrollPane();
 		//panelQuest.setTitle("Info & Quest");

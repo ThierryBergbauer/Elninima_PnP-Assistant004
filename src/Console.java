@@ -26,7 +26,19 @@ public class Console
 		if (this.commandChar.equals(String.valueOf(Entry.charAt(0))))
 		{
 			; //TODO Execute command
+			this.oldCommands.add(Entry);
 			JOptionPane.showMessageDialog(null, "Executes code... (Window for Debuging)"); //TODO Delete when execute command is finished
+			try
+			{
+				FileReaderLog.writeToFile(Entry + "\n", this.username + "log");
+			} catch (final IOException e)
+			{
+				e.printStackTrace();
+			}
+		}
+		else
+		{
+			this.oldCommands.add(Entry);
 			try
 			{
 				FileReaderLog.writeToFile(Entry, this.username + "log");
@@ -35,13 +47,5 @@ public class Console
 				e.printStackTrace();
 			}
 		}
-		else
-			try
-			{
-				FileReaderLog.writeToFile(Entry, this.username + "log");
-			} catch (final IOException e)
-			{
-				e.printStackTrace();
-			}
 	}
 }
