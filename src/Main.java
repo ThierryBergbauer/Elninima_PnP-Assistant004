@@ -205,7 +205,7 @@ public class Main
 					Con1.addCommand(textAreaEntry.getText());
 					try
 					{
-						textAreaDisplay.setText(FileReaderLog.readFile1(username + "Log") + "\n");
+						textAreaDisplay.setText(FileReaderLog.readFile1(username + "Log"));
 					} catch (final FileNotFoundException e1)
 					{
 						e1.printStackTrace();
@@ -213,7 +213,6 @@ public class Main
 					{
 						e1.printStackTrace();
 					}
-					textAreaEntry.setText(null);
 				}
 			}
 			
@@ -227,7 +226,8 @@ public class Main
 			@Override
 			public void keyReleased(final KeyEvent e)
 			{
-				// TODO Auto-generated method stub
+				if (e.getKeyCode() == KeyEvent.VK_ENTER)
+					textAreaEntry.setText(null);
 				
 			}
 		});
