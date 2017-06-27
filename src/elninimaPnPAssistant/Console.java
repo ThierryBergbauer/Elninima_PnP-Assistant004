@@ -25,6 +25,10 @@ import elninimaPnPAssistant.ConsoleCommands.SayHello;
 
 public class Console extends JScrollPane
 {
+	/*
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	public final TextArea textAreaDisplay = new TextArea();
 	public final JTextArea textAreaEntry = new JTextArea();
 	
@@ -34,7 +38,6 @@ public class Console extends JScrollPane
 	
 	private final Map<String, IConsoleCommand> allCommands = new HashMap<>();
 	
-	private String commandToLog;
 	private final List<String> oldCommands = new ArrayList<>();
 	
 	final Properties prop = new Properties();
@@ -74,8 +77,7 @@ public class Console extends JScrollPane
 			@Override
 			public void keyTyped(final KeyEvent e)
 			{
-				// TODO Auto-generated method stub
-				
+			
 			}
 			
 			@Override

@@ -26,7 +26,7 @@ import net.miginfocom.swing.MigLayout;
 public class NewLogin extends JFrame
 {
 	
-	/**
+	/*
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
@@ -40,7 +40,7 @@ public class NewLogin extends JFrame
 		super.dispose();
 	}
 	
-	/**
+	/*
 	 * Launch the application.
 	 */
 	public static void main(final String[] args)
@@ -62,7 +62,7 @@ public class NewLogin extends JFrame
 		});
 	}
 	
-	/**
+	/*
 	 * Create the frame.
 	 */
 	public NewLogin()
