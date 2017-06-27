@@ -36,7 +36,7 @@ public class Console extends JScrollPane
 	OutputStream outLOG = null;
 	
 	/*
-	 * Initialisation
+	 * Initialization
 	 */
 	Console(final String usernameMain)
 	{
@@ -60,10 +60,7 @@ public class Console extends JScrollPane
 			{
 				
 				if (e.getKeyCode() == KeyEvent.VK_ENTER)
-				{
-					
 					Console.this.addCommand(Console.this.textAreaEntry.getText());
-				}
 			}
 			
 			@Override
@@ -77,9 +74,7 @@ public class Console extends JScrollPane
 			public void keyReleased(final KeyEvent e)
 			{
 				if (e.getKeyCode() == KeyEvent.VK_ENTER)
-				{
 					Console.this.textAreaEntry.setText(null);
-				}
 				
 			}
 		});
