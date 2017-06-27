@@ -25,17 +25,17 @@ public class DiceRolling implements IConsoleCommand
 			{
 				if (isInteger(fullCommandString.substring(first_ + 1, second_)) && isInteger(fullCommandString.substring(second_ + 1, fullCommandString.length())))
 					for (int i = 1; i <= Integer.parseInt(fullCommandString.substring(second_ + 1, fullCommandString.length())); i++)
-						this.console.printLine(String.valueOf(ThreadLocalRandom.current().nextInt(1, Integer.parseInt(fullCommandString.substring(first_ + 1, second_)) + 1)));
+						this.console.printLine(String.valueOf(ThreadLocalRandom.current().nextInt(1, Integer.parseInt(fullCommandString.substring(first_ + 1, second_)) + 1)), false, false);
 				else
-					this.console.printLine("Entry has no valid Integer 1 ");
+					this.console.printLine("Entry has no valid Integer 1 ", false, false);
 			}
 			else if (isInteger(fullCommandString.substring(first_ + 1, fullCommandString.length())))
-				this.console.printLine(String.valueOf(ThreadLocalRandom.current().nextInt(1, Integer.parseInt(fullCommandString.substring(first_ + 1, fullCommandString.length())) + 1)));
+				this.console.printLine(String.valueOf(ThreadLocalRandom.current().nextInt(1, Integer.parseInt(fullCommandString.substring(first_ + 1, fullCommandString.length())) + 1)), false, false);
 			else
-				this.console.printLine("Entry has no valid Integer 2 ");
+				this.console.printLine("Entry has no valid Integer 2 ", false, false);
 		}
 		else
-			this.console.printLine(String.valueOf(ThreadLocalRandom.current().nextInt(1, 6 + 1)));
+			this.console.printLine(String.valueOf(ThreadLocalRandom.current().nextInt(1, 6 + 1)), false, false);
 		
 	}
 	

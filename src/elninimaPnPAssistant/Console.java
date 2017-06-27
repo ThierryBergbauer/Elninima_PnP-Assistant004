@@ -5,16 +5,21 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
+import java.util.Set;
 
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
+import elninimaPnPAssistant.ConsoleCommands.ClearConsole;
 import elninimaPnPAssistant.ConsoleCommands.DiceRolling;
+import elninimaPnPAssistant.ConsoleCommands.HelpCommand;
 import elninimaPnPAssistant.ConsoleCommands.IConsoleCommand;
 import elninimaPnPAssistant.ConsoleCommands.SayHello;
 
@@ -47,6 +52,8 @@ public class Console extends JScrollPane
 		 */
 		this.allCommands.put("sayHello", new SayHello(this));
 		this.allCommands.put("dice", new DiceRolling(this));
+		this.allCommands.put("clear", new ClearConsole(this));
+		this.allCommands.put("help", new HelpCommand(this));
 		
 		/*
 		 * TextAreas
@@ -89,7 +96,7 @@ public class Console extends JScrollPane
 	void addCommand(final String Entry)
 	{
 		this.setOldCommand(Entry);
-		this.printLine(Entry);
+		this.printLine(Entry, true, true);
 		if (this.commandChar.equals(Entry.substring(0, this.commandChar.length())))
 		{
 			/*
@@ -114,16 +121,47 @@ public class Console extends JScrollPane
 	 * 
 	 * These should only be used if there is no way to use addCommand().
 	 */
-	public void printLine(final String str)
+	public void printLine(final String str, final boolean needsLog, final boolean needsUserStamp)
 	{
-		try
+		if (needsUserStamp)
 		{
-			FileReaderLog.writeToFile(str, this.username + "log");
-		} catch (final IOException e)
-		{
-			e.printStackTrace();
+			if (needsLog)
+				try
+				{
+					final Calendar cal = Calendar.getInstance();
+					final SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
+					FileReaderLog.writeToFile(sdf.format(cal.getTime()) + "\t" + this.username + " > " + str + "\n", this.username + "log");
+				} catch (final IOException e)
+				{
+					e.printStackTrace();
+				}
+			this.textAreaDisplay.append(this.username + " > " + str + "\n");
 		}
-		this.textAreaDisplay.append(str + "\n");
+		else
+		{
+			if (needsLog)
+				try
+				{
+					final Calendar cal = Calendar.getInstance();
+					final SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
+					FileReaderLog.writeToFile(sdf.format(cal.getTime()) + "\t" + str + "\n", this.username + "log");
+				} catch (final IOException e)
+				{
+					e.printStackTrace();
+				}
+			this.textAreaDisplay.append(str + "\n");
+		}
+		
+	}
+	
+	public Set<String> getCommandKeys()
+	{
+		return this.allCommands.keySet();
+	}
+	
+	public void clearConsole()
+	{
+		this.textAreaDisplay.setText("");
 	}
 	
 	public String getOldCommand(final int a)
