@@ -14,6 +14,7 @@ import java.util.Properties;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
+import elninimaPnPAssistant.ConsoleCommands.DiceRolling;
 import elninimaPnPAssistant.ConsoleCommands.IConsoleCommand;
 import elninimaPnPAssistant.ConsoleCommands.SayHello;
 
@@ -44,7 +45,8 @@ public class Console extends JScrollPane
 		/*
 		 * all Commands
 		 */
-		this.allCommands.put("SayHello", new SayHello(this));
+		this.allCommands.put("sayHello", new SayHello(this));
+		this.allCommands.put("dice", new DiceRolling(this));
 		
 		/*
 		 * TextAreas
