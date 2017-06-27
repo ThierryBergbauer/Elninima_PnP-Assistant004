@@ -11,7 +11,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 
-import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
@@ -91,9 +90,19 @@ public class Console extends JScrollPane
 		this.printLine(Entry);
 		if (this.commandChar.equals(Entry.substring(0, this.commandChar.length())))
 		{
-			this.allCommands.get(Entry.substring(this.commandChar.length())).run(null);
-			// TODO Execute command
-			JOptionPane.showMessageDialog(null, "Executes code... (Window for Debuging)"); // TODO
+			/*
+			 *Extracting the command from the parameters
+			 */
+			int commandEnd = 0;
+			if (Entry.indexOf(" ") == -1)
+				commandEnd = Entry.length();
+			else
+				commandEnd = Entry.indexOf(" ");
+			/*
+			 * The next Line executes the command if he can be found in allCommands and gives Entry as String
+			 * to the specific command class
+			 */
+			this.allCommands.get(Entry.substring(this.commandChar.length(), commandEnd)).run(Entry);
 		}
 	}
 	
