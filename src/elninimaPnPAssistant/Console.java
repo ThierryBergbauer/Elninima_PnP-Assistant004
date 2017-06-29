@@ -113,7 +113,10 @@ public class Console extends JScrollPane
 			 * The next Line executes the command if he can be found in allCommands and gives Entry as String
 			 * to the specific command class
 			 */
-			this.allCommands.get(Entry.substring(this.commandChar.length(), commandEnd)).run(Entry);
+			if (this.allCommands.containsKey(Entry.substring(this.commandChar.length(), commandEnd)))
+				this.allCommands.get(Entry.substring(this.commandChar.length(), commandEnd)).run(Entry);
+			else
+				this.printLine("Unknown Command", false, false);
 		}
 	}
 	
