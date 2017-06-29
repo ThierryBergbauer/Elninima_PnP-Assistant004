@@ -1,0 +1,8 @@
+14:48:05	test > /sayHello
+14:48:05	Hello World
+14:48:11	test > /clear
+14:48:16	test > /dice 99
+14:48:25	test > /dice 99 10
+14:49:34	test > /syaHello
+14:49:37	test > /help
+14:49:46	test > /clear

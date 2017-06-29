@@ -71,7 +71,10 @@ public class Console extends JScrollPane
 			{
 				
 				if (e.getKeyCode() == KeyEvent.VK_ENTER)
+				{
+					Console.this.username = Main.username;
 					Console.this.addCommand(Console.this.textAreaEntry.getText());
+				}
 			}
 			
 			@Override
@@ -111,7 +114,7 @@ public class Console extends JScrollPane
 				commandEnd = Entry.indexOf(" ");
 			/*
 			 * The next Line executes the command if he can be found in allCommands and gives Entry as String
-			 * to the specific command class
+			 * to the specific command class, else an error massage
 			 */
 			if (this.allCommands.containsKey(Entry.substring(this.commandChar.length(), commandEnd)))
 				this.allCommands.get(Entry.substring(this.commandChar.length(), commandEnd)).run(Entry);
