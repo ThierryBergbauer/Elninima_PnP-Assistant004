@@ -1,5 +1,6 @@
 package elninimaPnPAssistant.ConsoleCommands;
 
-public interface IConsoleCommand {
-	public void run(String fullCommandString);
+public interface IConsoleCommand
+{
+	public void run(String fullCommandString) throws IllegalArgumentException;
 }
