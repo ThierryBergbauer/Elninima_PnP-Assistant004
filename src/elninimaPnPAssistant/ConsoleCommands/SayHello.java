@@ -27,7 +27,6 @@ public class SayHello implements IConsoleCommand
 	{
 		System.out.println("Hello World");
 		this.console.printLine("Hello World", true, false);
-		
 	}
 	
 }

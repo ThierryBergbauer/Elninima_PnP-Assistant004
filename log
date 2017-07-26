@@ -67,3 +67,16 @@
 14:46:56	Hello World
 14:47:42	 > /sayHello
 14:47:42	Hello World
+12:59:55	 > /sayHello
+12:59:55	Hello World
+12:59:55	abc
+12:59:55	def
+13:00:07	 > /clear
+13:00:21	 > /dice
+13:00:36	 > /dice 10
+13:00:41	 > /dice 100
+13:00:47	 > /dice 100 10
+13:01:12	 > /dice 97 42
+13:03:01	 > /dice
+13:03:54	 > /dice10
+16:26:53	 > /help

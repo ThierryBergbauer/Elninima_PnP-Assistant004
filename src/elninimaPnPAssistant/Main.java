@@ -15,11 +15,12 @@ import javax.swing.JScrollPane;
 
 public class Main
 {
+	public static Main instance = new Main();
 	
 	private JFrame frame;
 	public JScrollPane panelPlayerData;
 	public JScrollPane panelMap;
-	public JScrollPane panelConsole;
+	public Console console;
 	public JScrollPane panelQuest;
 	
 	public static String username = "";
@@ -37,8 +38,7 @@ public class Main
 			{
 				try
 				{
-					final Main window = new Main();
-					window.frame.setVisible(true);
+					instance.frame.setVisible(true);
 				} catch (final Exception e)
 				{
 					e.printStackTrace();
@@ -83,9 +83,7 @@ public class Main
 					LoginFrame.setVisible(true);
 				}
 				else
-				{
 					JOptionPane.showMessageDialog(null, "You are still logged in. Try Logging out");
-				}
 			}
 		});
 		
@@ -104,9 +102,7 @@ public class Main
 					LoginFrame.setVisible(true);
 				}
 				else
-				{
 					JOptionPane.showMessageDialog(null, "Not logged in");
-				}
 			}
 		});
 		
@@ -118,13 +114,9 @@ public class Main
 			public void actionPerformed(final ActionEvent e)
 			{
 				if (isLoggedIn)
-				{
 					JOptionPane.showMessageDialog(null, "Creating new game");
-				}
 				else
-				{
 					JOptionPane.showMessageDialog(null, "Not logged in");
-				}
 			}
 		});
 		
@@ -136,13 +128,9 @@ public class Main
 			public void actionPerformed(final ActionEvent e)
 			{
 				if (isLoggedIn)
-				{
 					JOptionPane.showMessageDialog(null, "Data loading");
-				}
 				else
-				{
 					JOptionPane.showMessageDialog(null, "Not logged in");
-				}
 			}
 		});
 		
@@ -187,10 +175,10 @@ public class Main
 		desktopPane.add(panelMap);
 		
 		// Console implementation starts here
-		final Console Con1 = new Console(username);
+		this.console = new Console(username);
 		// panelConsole.setTitle("Console");
-		Con1.setBounds(269, 444, 764, 213);
-		desktopPane.add(Con1);
+		this.console.setBounds(269, 444, 764, 213);
+		desktopPane.add(this.console);
 		
 		// Quest window implementation starts here
 		

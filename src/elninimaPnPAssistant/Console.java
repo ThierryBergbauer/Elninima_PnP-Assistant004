@@ -80,16 +80,14 @@ public class Console extends JScrollPane
 			@Override
 			public void keyTyped(final KeyEvent e)
 			{
-				
+			
 			}
 			
 			@Override
 			public void keyReleased(final KeyEvent e)
 			{
 				if (e.getKeyCode() == KeyEvent.VK_ENTER)
-				{
 					Console.this.textAreaEntry.setText(null);
-				}
 				
 			}
 		});
@@ -111,26 +109,25 @@ public class Console extends JScrollPane
 			 */
 			int commandEnd = 0;
 			if (Entry.indexOf(" ") == -1)
-			{
 				commandEnd = Entry.length();
-			}
 			else
-			{
 				commandEnd = Entry.indexOf(" ");
-			}
 			/*
 			 * The next Line executes the command if he can be found in
 			 * allCommands and gives Entry as String to the specific command
 			 * class, else an error massage
 			 */
-			if (this.allCommands.containsKey(Entry.substring(this.commandChar.length(), commandEnd)))
-			{
-				this.allCommands.get(Entry.substring(this.commandChar.length(), commandEnd)).run(Entry);
-			}
+			final IConsoleCommand cmd = this.allCommands.get(Entry.substring(this.commandChar.length(), commandEnd));
+			if (cmd != null)
+				try
+				{
+					cmd.run(Entry);
+				} catch (final IllegalArgumentException ex)
+				{
+					this.printLine(ex.getMessage(), false, false);
+				}
 			else
-			{
 				this.printLine("Unknown Command", false, false);
-			}
 		}
 	}
 	
@@ -145,7 +142,6 @@ public class Console extends JScrollPane
 		if (needsUserStamp)
 		{
 			if (needsLog)
-			{
 				try
 				{
 					final Calendar cal = Calendar.getInstance();
@@ -155,13 +151,11 @@ public class Console extends JScrollPane
 				{
 					e.printStackTrace();
 				}
-			}
 			this.textAreaDisplay.append(this.username + " > " + str + "\n");
 		}
 		else
 		{
 			if (needsLog)
-			{
 				try
 				{
 					final Calendar cal = Calendar.getInstance();
@@ -171,7 +165,6 @@ public class Console extends JScrollPane
 				{
 					e.printStackTrace();
 				}
-			}
 			this.textAreaDisplay.append(str + "\n");
 		}
 		
