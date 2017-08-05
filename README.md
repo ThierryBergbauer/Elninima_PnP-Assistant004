@@ -45,7 +45,7 @@ with the name:
 	-MAKING THE WINSOWS ADJUSTABLE AND AUTOSCALEABLE (At the moment all the internal frames/windows are Scrollpanes. 	This is not a good solution. But I didn't found a better one) 
 
 #Work organisation:
--Thierry: Console, Data loading and saving
+-Thierry: Console (done), Data loading and saving, Attributes & Capabilities
 -faegbag: 
 -:
 -:
