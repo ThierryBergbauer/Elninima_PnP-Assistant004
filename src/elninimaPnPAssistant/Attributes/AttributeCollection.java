@@ -1,13 +1,12 @@
 package elninimaPnPAssistant.Attributes;
 
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
-import java.util.Map.Entry;
 import java.util.Set;
 import java.util.stream.Collectors;
 
 import elninimaPnPAssistant.Capabilities.Capability;
-import elninimaPnPAssistant.Capabilities.CapabilityMap.CapID;
 
 public class AttributeCollection
 {
@@ -23,15 +22,28 @@ public class AttributeCollection
 		this.attributeList.add(att);
 	}
 	
-	public <T extends Capability> LinkedHashMap<Attribute, T> getCapabilities(final CapID<T> id)
+	public <T extends Capability> LinkedHashMap<Attribute, T> getCapabilities(final Class<T> id)
 	{
+		class AttToCap
+		{
+			Attribute att;
+			T cap;
+			
+			public AttToCap(final Attribute att)
+			{
+				this.att = att;
+				this.cap = att.getCapability(id);
+			}
+		}
+		
+		/*
+		 * Creates a Linked Hash set with all attributes and sorted in order of their capability priority
+		 */
 		return this.attributeList
 			.stream()
-			.collect(Collectors.toMap((a) -> a, (a) -> a.get(id)))
-			.entrySet()
-			.stream()
-			.filter((e) -> e.getValue() != null)
-			.sorted(Entry.comparingByValue())
-			.collect(Collectors.toMap(Entry::getKey, Entry::getValue, (o1, o2) -> o1, LinkedHashMap::new));
+			.map(AttToCap::new)
+			.filter(e -> e.cap != null)
+			.sorted(Comparator.comparing(a -> a.cap))
+			.collect(Collectors.toMap(a -> a.att, a -> a.cap, (o1, o2) -> o1, LinkedHashMap::new));
 	}
 }
