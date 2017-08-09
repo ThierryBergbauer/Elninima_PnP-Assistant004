@@ -1,7 +1,5 @@
 package elninimaPnPAssistant.Capabilities;
 
-import java.util.List;
-
 public abstract class CapDefense extends Capability
 {
 	public CapDefense(final int priority)
@@ -9,5 +7,5 @@ public abstract class CapDefense extends Capability
 		super(priority);
 	}
 	
-	public abstract void defense(List<?> players);
+	public abstract double defense(double defense);
 }

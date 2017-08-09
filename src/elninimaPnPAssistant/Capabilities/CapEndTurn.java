@@ -1,7 +1,5 @@
 package elninimaPnPAssistant.Capabilities;
 
-import java.util.List;
-
 public abstract class CapEndTurn extends Capability
 {
 	public CapEndTurn(final int priority)
@@ -9,5 +7,5 @@ public abstract class CapEndTurn extends Capability
 		super(priority);
 	}
 	
-	public abstract void endTurn(List<?> players);
+	public abstract double endTurn(double endTurn);
 }
